@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ClimaService } from './clima.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,19 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'clima';
+  tiempo: any[] = [];
+
+  constructor(protected climaService: ClimaService) {}
+
+  ngOnInit() {
+    this.climaService.getWeather().subscribe(
+      data => {
+        // Success
+        this.tiempo = data['results'];
+      },
+      error => {
+        console.error(error);
+      }
+    );
+  }
 }
