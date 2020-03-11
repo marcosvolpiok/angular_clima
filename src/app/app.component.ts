@@ -16,7 +16,8 @@ export class AppComponent {
     this.climaService.getWeather().subscribe(
       data => {
         // Success
-        this.tiempo = data['results'];
+        this.tiempo = data;
+        console.log(this.tiempo);
       },
       error => {
         console.error(error);
