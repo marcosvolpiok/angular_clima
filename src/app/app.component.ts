@@ -12,8 +12,29 @@ export class AppComponent {
 
   constructor(protected climaService: ClimaService) {}
 
-  ngOnInit() {
-    this.climaService.getWeather().subscribe(
+  getForecast(ciudad) {
+    if (ciudad == undefined) {
+      ciudad = '';
+    }
+
+    this.climaService.getForecast(ciudad).subscribe(
+      data => {
+        // Success
+        this.tiempo = data;
+        console.log(this.tiempo);
+      },
+      error => {
+        console.error(error);
+      }
+    );
+  }
+
+  getCurrent(ciudad) {
+    if (ciudad == undefined) {
+      ciudad = '';
+    }
+
+    this.climaService.getCurrent(ciudad).subscribe(
       data => {
         // Success
         this.tiempo = data;

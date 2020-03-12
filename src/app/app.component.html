@@ -2,3 +2,15 @@
 <div *ngFor="let t of tiempo">
   <p>{{ t.description }}</p>
 </div>
+
+<select [(ngModel)]="ciudad">
+  <option selected="selected">Auto-detectar</option>
+  <option value="rosario">Rosario</option>
+  <option value="caracas">Caracas</option>
+  <option value="toronto">Toronto</option>
+  <option value="buenos aires">Buenos Aires</option>
+  <option value="cordoba">Cordoba</option>
+</select>
+
+<button (click)="getForecast(ciudad)">Pronóstico 5 días</button>
+<button (click)="getCurrent(ciudad)">Pronóstico hoy</button>
