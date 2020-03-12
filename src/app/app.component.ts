@@ -20,7 +20,7 @@ export class AppComponent {
     this.climaService.getForecast(ciudad).subscribe(
       data => {
         // Success
-        this.tiempo = data;
+        this.tiempo = data as any;
         console.log(this.tiempo);
       },
       error => {
@@ -37,7 +37,7 @@ export class AppComponent {
     this.climaService.getCurrent(ciudad).subscribe(
       data => {
         // Success
-        this.tiempo = data;
+        this.tiempo = data as any;
         console.log(this.tiempo);
       },
       error => {
